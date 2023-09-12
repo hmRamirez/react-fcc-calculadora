@@ -1,14 +1,22 @@
 import { useState } from "react";
 import "./app.css";
 import Boton from "./Boton";
+import Pantalla from "./Pantalla";
+import BotonClear from "./BotonClear";
+
 //import fcc from "./assets/react-logo.svg";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [input, setInput] = useState(10);
+
+  const handleClear = () => {
+    setInput(0);
+  };
 
   return (
     <div className="App">
       <div className="contenedor-calculadora">
+        <Pantalla input={input} />
         <div className="fila">
           <Boton>1</Boton>
           <Boton>2</Boton>
@@ -33,7 +41,9 @@ function App() {
           <Boton>.</Boton>
           <Boton>/</Boton>
         </div>
-        <div className="fila"></div>
+        <div className="fila">
+          <BotonClear clear={handleClear}>C</BotonClear>
+        </div>
       </div>
     </div>
   );
